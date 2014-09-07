@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Galleries</title>
+</head>
+<body>
+	<h1>Buzzball</h1>
+	
+	<div id="header">
+		<a href="/galleries">List of Galleries</a>
+		<a href="/">Home</a>
+	</div>
+<!-- ------------------------------------- -->
+
+	<p>Galleries:</p>
+	<ul>
+		<% galleries.each do |gallery| %>
+		<li>
+			<a href="/galleries/<%= gallery.id %>">
+				<%= gallery.name %>
+				<%= gallery.event %>
+				<%= gallery.neighborhood %>
+				<%= gallery.address %>
+				<%= gallery.opening_date %>
+				<%= gallery.open_thru %>
+			</a>
+		</li>
+		<% end %>
+	<ul>
+</body>
+</html>
+
+<!-- add post button -->
+<!-- add subscribe button -->

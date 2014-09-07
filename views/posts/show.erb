@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Buzzball</h1>
+	
+	<div id="header">
+		<a href="/galleries">List of Galleries</a>
+		<a href="/">Home</a>
+	</div>
+<!-- ------------------------------------- -->
+		<%= gallery.name %>
+		<%= gallery.event %>
+		<%= gallery.neighborhood %>
+		<%= gallery.address %>
+		<%= gallery.opening_date %>
+		<%= gallery.open_thru %>
+				<!-- ------------------------- -->
+				<!-- insta api -->
+		<%= post.author %>
+		<%= post.title %>
+		<%= post.post %>
+		<img src="<%= post.img %>"/>
+		<%= post.tag %>
+	<div>
+		<h3>Subscribe:</h3>
+		<form action="/subscribers" method="POST">
+		<input type="hidden" name="subscriber[post_id]" value="<%= post.id %>"/> 
+			<ul>
+		        <li><input type="text" name="subscriber[phone]" placeholder="Phone" /></li>
+		    </ul>
+	        
+	        <button>Submit</button>
+	    </form>
+	</div>
+
+	
+	<div>
+		<h3>Add Comment:</h3>
+		<form action="/comments" method="POST">
+		<input type="hidden" name="comment[post_id]" value="<%= post.id %>"/> 
+			<ul>
+		        <li><input type="text" name="comment[name]" placeholder="Name" /></li>
+		        <li><input type="text" name="comment[comment]" placeholder="Comment" /></li>
+		    </ul>
+	        
+	        <button>Submit</button>
+	    </form>
+	</div>
+</body>
+</html>

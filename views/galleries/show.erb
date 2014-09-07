@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title>Show Gallery</title>
+</head>
+<body>
+
+	<%= gallery.name %>
+	<%= gallery.event %>
+	<%= gallery.neighborhood %>
+	<%= gallery.address %>
+	<%= gallery.opening_date %>
+	<%= gallery.open_thru %>
+
+
+
+	<p>Posts:</p>
+	<ul>
+		<% posts.each do |post| %>
+		<li>
+			<a href="/posts/<%= post.id %>">
+				<%= post.title %>
+			</a>
+		</li>
+		<% end %>
+	<ul>
+
+	<div>
+		<h3>Add a Post:</h3>
+		<form action="/posts" method="POST">
+		<input type="hidden" name="post[gallery_id]" value="<%= gallery.id %>"/> 
+			<ul>
+		        <li><input type="text" name="post[author]" placeholder="Author" /></li>
+		        <li><input type="text" name="post[title]" placeholder="Title" /></li>
+		        <li><textarea rows="25" cols="60" name="post[post]"></textarea></li>
+		        <li><input type="text" name="post[img]" placeholder="Image URL" /></li>
+		        <li><input type="text" name="post[tag]" placeholder="tags" /></li>
+		    </ul>
+	        
+	        <button>Submit</button>
+	    </form>
+	</div>
+
+</body>
+</html>
