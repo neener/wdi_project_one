@@ -17,7 +17,7 @@ get("/") do
 	erb(:index)
 end
 
-post("/") do
+post("/galleries") do
 	gallery_hash = {
 		name: params["name"],
 		event: params["event"],
@@ -29,7 +29,7 @@ post("/") do
 
 	Gallery.create(gallery_hash)
 
-	erb(:"galleries/new", { locals: { gallery: Gallery.all() } })
+	redirect "/galleries" 
 end
 
 

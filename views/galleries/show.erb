@@ -1,34 +1,48 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>Show Gallery</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Erica+One' rel='stylesheet' type='text/css'>
+	<title>Galleries</title>
 </head>
+
 <body>
-
-	<%= gallery.name %>
-	<%= gallery.event %>
-	<%= gallery.neighborhood %>
-	<%= gallery.address %>
-	<%= gallery.opening_date %>
-	<%= gallery.open_thru %>
-
-
-
-	<p>Posts:</p>
-	<ul>
-		<% posts.each do |post| %>
-		<li>
-			<a href="/posts/<%= post.id %>">
-				<%= post.title %>
-			</a>
-		</li>
-		<% end %>
-	<ul>
-
+	<div id="header">
+		<h1 id="logo">Buzzball</h1>
+		<h2 id="sub">An online forum for gallery critique</h2><br>
+		<h3 id="list"><a href="/galleries">List of Galleries</a> <a href="/">Home</a></h3>
 	<div>
-		<h3>Add a Post:</h3>
+	
+
+	<div id= "gallery_head">
+		<ul id="form">
+			<li id="name"><%= gallery.name %></li>
+				<%= gallery.event %><br>
+				<%= gallery.neighborhood %><br>
+				<%= gallery.address %><br>
+				Openging Date: <%= gallery.opening_date %><br>
+				Open thru: <%= gallery.open_thru %>
+		</ul>
+	</div>
+
+	<div id="post_list">
+		<ul id="form">
+			<% posts.each do |post| %>
+			<li>
+				<a href="/posts/<%= post.id %>">
+					<%= post.title %>
+				</a>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	
+	<div id="form">
 		<form action="/posts" method="POST">
 		<input type="hidden" name="post[gallery_id]" value="<%= gallery.id %>"/> 
-			<ul>
+			<ul id="form">
+				Add a Post:
 		        <li><input type="text" name="post[author]" placeholder="Author" /></li>
 		        <li><input type="text" name="post[title]" placeholder="Title" /></li>
 		        <li><textarea rows="25" cols="60" name="post[post]"></textarea></li>

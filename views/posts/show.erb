@@ -1,33 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title></title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Erica+One' rel='stylesheet' type='text/css'>
+	<title>Galleries</title>
 </head>
+
 <body>
-<h1>Buzzball</h1>
-	
 	<div id="header">
-		<a href="/galleries">List of Galleries</a>
-		<a href="/">Home</a>
-	</div>
-<!-- ------------------------------------- -->
-		<%= gallery.name %>
-		<%= gallery.event %>
-		<%= gallery.neighborhood %>
-		<%= gallery.address %>
-		<%= gallery.opening_date %>
-		<%= gallery.open_thru %>
-				<!-- ------------------------- -->
-				<!-- insta api -->
-		<%= post.author %>
-		<%= post.title %>
-		<%= post.post %>
-		<img src="<%= post.img %>"/>
-		<%= post.tag %>
+		<h1 id="logo">Buzzball</h1>
+		<h2 id="sub">An online forum for gallery critique</h2><br>
+		<h3 id="list"><a href="/galleries">List of Galleries</a> <a href="/">Home</a></h3>
 	<div>
+
+
+		
+	<div id= "gallery_head">
+		<ul id="form">
+			<li id="name"><%= gallery.name %></li>
+				<%= gallery.event %><br>
+				<%= gallery.neighborhood %><br>
+				<%= gallery.address %><br>
+				Openging Date: <%= gallery.opening_date %><br>
+				Open thru: <%= gallery.open_thru %>
+		</ul>
+	</div>
+<!-- ------------------------- -->
+				<!-- insta api -->
+
+	<div id="post_list">
+		<ul id="form">
+			<li id="author"><%= post.author %></li>
+			<li id="title"><%= post.title %></li>
+			<li id="post"><%= post.post %></li>
+			<img src="<%= post.img %>"/><br>
+			Tag: <%= post.tag %>
+		</ul>
+	</div>
+	
+	<div id="form">
 		<h3>Subscribe:</h3>
 		<form action="/subscribers" method="POST">
 		<input type="hidden" name="subscriber[post_id]" value="<%= post.id %>"/> 
-			<ul>
+			<ul id="form">
 		        <li><input type="text" name="subscriber[phone]" placeholder="Phone" /></li>
 		    </ul>
 	        
@@ -36,11 +52,11 @@
 	</div>
 
 	
-	<div>
+	<div id="form">
 		<h3>Add Comment:</h3>
 		<form action="/comments" method="POST">
 		<input type="hidden" name="comment[post_id]" value="<%= post.id %>"/> 
-			<ul>
+			<ul id="form">
 		        <li><input type="text" name="comment[name]" placeholder="Name" /></li>
 		        <li><input type="text" name="comment[comment]" placeholder="Comment" /></li>
 		    </ul>
@@ -48,5 +64,6 @@
 	        <button>Submit</button>
 	    </form>
 	</div>
+	
 </body>
 </html>

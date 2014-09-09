@@ -12,4 +12,7 @@ class Post < ActiveRecord::Base
 		Comment.where({post_id: self.id})
 	end
 
+	def twilio(comment_id)
+	end	
+
 end

@@ -2,34 +2,33 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Erica+One' rel='stylesheet' type='text/css'>
 	<title>Galleries</title>
 </head>
-<body>
-	<h1>Buzzball</h1>
-	
-	<div id="header">
-		<a href="/galleries">List of Galleries</a>
-		<a href="/">Home</a>
-	</div>
-<!-- ------------------------------------- -->
 
-	<p>Galleries:</p>
-	<ul>
+<body>
+	<div id="header">
+		<h1 id="logo">Buzzball</h1>
+		<h2 id="sub">An online forum for gallery critique</h2><br>
+		<h3 id="list"><a href="/">HOME</a></h3>
+	</div>
+
+	<div id= "gallery_list">
+	<h3>Galleries:</h3>
+	<ul id="list">
 		<% galleries.each do |gallery| %>
-		<li>
-			<a href="/galleries/<%= gallery.id %>">
-				<%= gallery.name %>
-				<%= gallery.event %>
-				<%= gallery.neighborhood %>
-				<%= gallery.address %>
-				<%= gallery.opening_date %>
-				<%= gallery.open_thru %>
-			</a>
-		</li>
+			<li>
+				<a href="/galleries/<%= gallery.id %>">
+					<%= gallery.name %>
+					<%= gallery.event %>
+				</a>
+			</li>
 		<% end %>
-	<ul>
+	</ul>
+	</div>
 </body>
 </html>
 
 <!-- add post button -->
-<!-- add subscribe button -->
+<!-- add -->
