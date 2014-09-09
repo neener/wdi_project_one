@@ -16,6 +16,8 @@ CREATE TABLE posts(
 	post varchar,
 	img varchar,
 	tag varchar(50),
+	upvote integer not null default 0,
+	downvote integer not null default 0,
 	gallery_id integer
 );
 

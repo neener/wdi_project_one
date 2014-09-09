@@ -26,13 +26,25 @@
 		</ul>
 	</div>
 
-	<div id="post_list">
+	<div id="form">
 		<ul id="form">
+			Posts:
 			<% posts.each do |post| %>
 			<li>
 				<a href="/posts/<%= post.id %>">
 					<%= post.title %>
 				</a>
+
+		<form action="/galleries/<%= post.id %>/upvote" method="POST">
+			<input type= "hidden" name="post[upvote]">
+			<button> upvote </button>
+		</form>
+
+		<form action="/galleries/<%= post.id %>/downvote" method="POST">
+			<input type= "hidden" name="post[downvote]">
+			<button> downvote </button>
+		</form>
+
 			</li>
 			<% end %>
 		</ul>

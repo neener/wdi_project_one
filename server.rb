@@ -7,6 +7,7 @@ require_relative './models/subscriber'
 require_relative './models/comment'
 require 'httparty'
 require 'twilio-ruby'
+require 'pry'
 require_relative './db/secrets'
 
 after do
@@ -44,6 +45,21 @@ get ("/galleries/:id") do
 	posts = Post.where :gallery_id => gallery.id
 	erb(:"galleries/show", { locals: { gallery: gallery, posts: posts } })
 end
+
+post("/galleries/:id/upvote") do
+	post = Post.find(params[:id])
+	post.upvote += 1
+	post.save
+	redirect "/galleries"
+end
+
+post("/galleries/:id/downvote") do
+	post = Post.find(params[:id])
+	post.downvote -= 1
+	post.save
+	redirect "/galleries"
+end
+
 #posts~~~~~~~~~~~~~~~~~~~~~~~~
 
 post("/posts") do
@@ -57,6 +73,7 @@ get("/posts/:id") do
 	gallery = Gallery.find(post.gallery_id)
 	erb(:"posts/show", { locals: { gallery: gallery, post: post } })
 end
+
 #comments~~~~~~~~~~~~~~~~~~
 
 post("/comments") do
