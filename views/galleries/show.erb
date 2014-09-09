@@ -40,10 +40,14 @@
 			<button> upvote </button>
 		</form>
 
+		<%=post.upvote %>
+
 		<form action="/galleries/<%= post.id %>/downvote" method="POST">
 			<input type= "hidden" name="post[downvote]">
 			<button> downvote </button>
 		</form>
+
+		<%=post.downvote %>
 
 			</li>
 			<% end %>
